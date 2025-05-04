@@ -2,41 +2,6 @@ body {
   background-color: lightpink;
 }
 
-h1 {
-  text-align: center;
-  font-size: xx-large;
-}
-/* Center the image horizontally */
-.my-image {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  /* Optional: add a bit of space below the image */
-  margin-top: 20px;
-}
-
-.my-image {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  width: 570px; /* You can change this */
-  height: 700px; /* Or use auto to keep aspect ratio */
-}
-.message-form {
-  margin-top: -20px; /* pulls it upward */
-}
-.message-form {
-  margin-top: -20px; /* Moves it up */
-  background-color: #ffe6f0; /* Soft pink background */
-  border: 2px solid #ff99c8; /* Cute pink border */
-  border-radius: 15px; /* Rounded corners */
-  padding: 20px; /* Space inside the box */
-  width: 60%;
-  margin-left: auto;
-  margin-right: auto;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Light shadow */
-  text-align: center; /* Center the content */
-}
 button {
   background-color: #ff99c8;
   color: white;
@@ -46,30 +11,12 @@ button {
   cursor: pointer;
   font-size: 16px;
   transition: background-color 0.3s ease;
+
+  &:hover {
+    background-color: #ff66a3;
+  }
 }
 
-button:hover {
-  background-color: #ff66a3;
-}
-.message-form {
-  margin-top: -20px;
-  background-color: #fff0f5; /* Light blush pink */
-  border: 3px dashed #ffb6c1; /* Cute pink dashed border */
-  border-radius: 20px;
-  padding: 30px;
-  width: 70%;
-  margin: 30px auto;
-  box-shadow: 0 8px 16px rgba(255, 182, 193, 0.3);
-  text-align: center;
-  font-family: "Comic Sans MS", cursive, sans-serif; /* Sweet font */
-  position: relative;
-}
-.message-form::before {
-  content: "💗💐💗";
-  font-size: 28px;
-  display: block;
-  margin-bottom: 10px;
-}
 .message-form {
   margin-top: 10px; /* 👈 Changed from -20px or 30px to bring it higher */
   background-color: #fff0f5;
@@ -83,13 +30,22 @@ button:hover {
   text-align: center;
   font-family: "Comic Sans MS", cursive, sans-serif;
   position: relative;
+
+  &::before {
+    content: "💗💐💗";
+    font-size: 28px;
+    display: block;
+    margin-bottom: 10px;
+  }
 }
+
 .my-image {
   display: block;
   margin: 10px auto 20px auto; /* top, right, bottom, left */
   width: 570px;
   height: auto; /* or set to a fixed value if needed */
 }
+
 h1 {
   text-align: center;
   font-size: xx-large;
