@@ -18,12 +18,12 @@ button:hover {
 }
 
 .message-form {
-  margin-top: 10px; /* Changed from -20px or 30px to bring it higher */
+  margin-top: 10px;
   background-color: #fff0f5;
   border: 3px dashed #ffb6c1;
   border-radius: 20px;
   padding: 30px;
-  width: 70%;
+  width: 30%;
   margin-left: auto;
   margin-right: auto;
   box-shadow: 0 8px 16px rgba(255, 182, 193, 0.3);
@@ -41,24 +41,28 @@ button:hover {
 
 .my-image {
   display: block;
-  margin: 10px auto 20px auto; /* top, right, bottom, left */
-  width: 570px;
-  border-radius: 20px;
-  height: auto; /* or set to a fixed value if needed */
+  margin: 10px auto 20px auto;
+  width: 480px;
+  border-radius: 30px;
+  height: auto;
+  transition: opacity 0.5s ease;
 }
 
 h1 {
   text-align: center;
   font-size: xx-large;
-  margin-bottom: 10px; /* reduce space below */
+  margin-bottom: 10px;
 }
 
-/* Confetti button styles */
-.confetti-button-container {
-  text-align: center;
+/* Buttons container styles */
+.buttons-container {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
   margin: 20px auto;
 }
 
+/* Confetti button styles */
 #confetti-button {
   font-size: 18px;
   padding: 12px 24px;
@@ -68,6 +72,20 @@ h1 {
 }
 
 #confetti-button:hover {
+  background-color: #ff3385;
+  transform: scale(1.05);
+}
+
+/* Next Picture button styles */
+#next-picture-button {
+  font-size: 18px;
+  padding: 12px 24px;
+  background-color: #ff66a3;
+  box-shadow: 0 4px 8px rgba(255, 102, 163, 0.5);
+  font-family: "Comic Sans MS", cursive, sans-serif;
+}
+
+#next-picture-button:hover {
   background-color: #ff3385;
   transform: scale(1.05);
 }
