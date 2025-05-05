@@ -1,7 +1,7 @@
 document.addEventListener("DOMContentLoaded", function () {
   // Array of images for the Next Picture button
   const images = [
-    "mothers-day.jpg",
+    "mothers-day2.jpg",
     "alex_snake.jpg",
     "amy_birthday.jpg",
     "dad_birthday.jpg",
