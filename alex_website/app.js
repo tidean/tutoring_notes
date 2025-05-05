@@ -1,74 +1,48 @@
-// Array of flower emojis to randomly choose from
-const flowers = ["🌸", "🌹", "🌺", "🌻", "🌼", "💐", "🌷", "🪷"];
+document.addEventListener("DOMContentLoaded", function () {
+  // Get the confetti button
+  const confettiButton = document.getElementById("confetti-button");
 
-// Form submission handling
-document.addEventListener("DOMContentLoaded", () => {
-  const form = document.querySelector("form");
+  // Add click event listener to the button
+  confettiButton.addEventListener("click", function () {
+    createConfetti();
+  });
 
-  // Handle form submission
-  form.addEventListener("submit", (e) => {
-    e.preventDefault();
+  // Get the form element
+  const messageForm = document.querySelector("form");
 
+  // Add submit event listener to the form
+  messageForm.addEventListener("submit", function (event) {
+    event.preventDefault();
     const textarea = document.querySelector("textarea");
-    const message = textarea.value.trim();
+    alert("Message sent: " + textarea.value);
+    textarea.value = "";
 
-    if (message) {
-      // Show thank you message
-      alert("Thank you for your lovely message! ❤️");
-      textarea.value = "";
-
-      // Create lots of flowers for successful submission
-      for (let i = 0; i < 20; i++) {
-        setTimeout(() => {
-          createFlower(Math.random() * window.innerWidth, Math.random() * window.innerHeight);
-        }, i * 100);
-      }
-    } else {
-      alert("Please write a message before submitting.");
-    }
+    // Show confetti on form submission too
+    createConfetti();
   });
 
-  // Click anywhere to create flowers
-  document.addEventListener("click", (e) => {
-    // Create 3 flowers at once at the clicked location
-    for (let i = 0; i < 3; i++) {
-      // Add slight randomness to position
-      const offsetX = (Math.random() - 0.5) * 50;
-      const offsetY = (Math.random() - 0.5) * 50;
+  // Function to create confetti effect
+  function createConfetti() {
+    const confettiContainer = document.createElement("div");
+    confettiContainer.className = "confetti-container";
+    document.body.appendChild(confettiContainer);
 
-      setTimeout(() => {
-        createFlower(e.clientX + offsetX, e.clientY + offsetY);
-      }, i * 150);
+    // Create multiple confetti pieces
+    const colors = ["#ff99c8", "#fcb6d0", "#ffb6c1", "#ffd1dc", "#ffc0cb"];
+
+    for (let i = 0; i < 100; i++) {
+      const confetti = document.createElement("div");
+      confetti.className = "confetti";
+      confetti.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+      confetti.style.left = Math.random() * 100 + "vw";
+      confetti.style.animationDuration = Math.random() * 3 + 2 + "s";
+      confetti.style.animationDelay = Math.random() * 2 + "s";
+      confettiContainer.appendChild(confetti);
     }
-  });
+
+    // Remove confetti container after animation
+    setTimeout(function () {
+      confettiContainer.remove();
+    }, 5000);
+  }
 });
-
-// Function to create a flower at the specified position
-function createFlower(x, y) {
-  // Create a new div element for the flower
-  const flower = document.createElement("div");
-
-  // Randomly select a flower emoji
-  const randomFlower = flowers[Math.floor(Math.random() * flowers.length)];
-
-  // Set the flower properties
-  flower.className = "flower";
-  flower.textContent = randomFlower;
-  flower.style.left = `${x}px`;
-  flower.style.top = `${y}px`;
-
-  // Add some randomness to the animation
-  const rotation = Math.random() * 360;
-  const duration = 2 + Math.random() * 2;
-
-  flower.style.transform = `rotate(${rotation}deg)`;
-  flower.style.animationDuration = `${duration}s`;
-
-  // Add the flower to the body
-  document.body.appendChild(flower);
-
-  // Remove the flower from the DOM after animation completes
-  setTimeout(() => {
-    flower.remove();
-  }, duration * 1000);
-}
