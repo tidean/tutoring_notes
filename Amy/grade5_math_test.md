@@ -44,26 +44,17 @@ a) Sarah has 1,245 stickers. She gives 378 stickers to her friend and buys 567 m
 
 Work:
 
-
-
-
 Answer: _______________
 
 b) A school has 24 classrooms. Each classroom has 28 desks. How many desks are there in total?
 
 Work:
 
-
-
-
 Answer: _______________
 
 c) A bakery made 2,160 cookies. They want to pack them equally into 45 boxes. How many cookies will be in each box?
 
 Work:
-
-
-
 
 Answer: _______________
 
@@ -83,9 +74,36 @@ Tom ate 2/8 of a pizza and his sister ate 3/8 of the same pizza. How much of the
 
 Work:
 
+Answer: _______________
 
+**7.** Find the HCF (Highest Common Factor) of the following pairs:
 
+a) HCF of 24 and 36
+
+Work:
 
 Answer: _______________
 
----
+b) HCF of 45 and 75
+
+Work:
+
+<br>
+
+Answer: _______________
+
+**8.** Find the LCM (Least Common Multiple) of the following pairs:
+
+a) LCM of 12 and 18
+
+Work:
+
+<br>
+
+Answer: _______________
+
+b) LCM of 15 and 25
+
+Work:
+
+Answer: _______________

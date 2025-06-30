@@ -52,17 +52,13 @@ a) HCF of 24 and 36
 
 Work:
 
-
-
-
 Answer: _______________
 
 b) HCF of 45 and 75
 
 Work:
 
-
-
+<br>
 
 Answer: _______________
 
@@ -72,8 +68,7 @@ a) LCM of 12 and 18
 
 Work:
 
-
-
+<br>
 
 Answer: _______________
 
@@ -81,8 +76,7 @@ b) LCM of 15 and 25
 
 Work:
 
-
-
+<br>
 
 Answer: _______________
 
@@ -113,11 +107,6 @@ Answer: _______________
 **11.** Word problem:
 
 A square garden has an area of 144 square meters. What is the length of each side of the garden?
-
-Work:
-
-
-
 
 Answer: _______________
 
