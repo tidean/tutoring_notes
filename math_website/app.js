@@ -28,15 +28,16 @@ class MathQuiz {
     createRandomQuestion() {
         const operations = ['multiplication', 'division'];
         const operation = operations[Math.floor(Math.random() * operations.length)];
-        const formats = ['missing_result', 'missing_factor'];
+        // Make 'missing_factor' more likely than 'missing_result'
+        const formats = ['missing_result', 'missing_factor', 'missing_factor', 'missing_factor'];
         const format = formats[Math.floor(Math.random() * formats.length)];
 
         let num1, num2, result, questionText, correctAnswer;
 
         // We'll use '__BLANK__' as a placeholder for the answer box
         if (operation === 'multiplication') {
-            num1 = Math.floor(Math.random() * 14) + 2; // 2-15
-            num2 = Math.floor(Math.random() * 14) + 2; // 2-15
+            num1 = Math.floor(Math.random() * 11) + 2; // 2-12
+            num2 = Math.floor(Math.random() * 11) + 2; // 2-12
             result = num1 * num2;
 
             if (format === 'missing_result') {
@@ -53,8 +54,8 @@ class MathQuiz {
                 }
             }
         } else { // division
-            num2 = Math.floor(Math.random() * 14) + 2; // 2-15
-            num1 = Math.floor(Math.random() * 14) + 2; // 2-15
+            num2 = Math.floor(Math.random() * 11) + 2; // 2-12
+            num1 = Math.floor(Math.random() * 11) + 2; // 2-12
             result = num1 * num2;
 
             if (format === 'missing_result') {
