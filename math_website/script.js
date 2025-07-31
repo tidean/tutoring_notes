@@ -3,6 +3,7 @@ class MathQuiz {
         this.questions = [];
         this.currentScore = 0;
         this.totalScore = parseInt(sessionStorage.getItem('totalScore')) || 0;
+        this.totalQuestions = parseInt(sessionStorage.getItem('totalQuestions')) || 0;
         this.isSubmitted = false;
 
         this.init();
@@ -32,51 +33,41 @@ class MathQuiz {
 
         let num1, num2, result, questionText, correctAnswer;
 
+        // We'll use '__BLANK__' as a placeholder for the answer box
         if (operation === 'multiplication') {
-            num1 = Math.floor(Math.random() * 12) + 1; // 1-12
-            num2 = Math.floor(Math.random() * 12) + 1; // 1-12
+            num1 = Math.floor(Math.random() * 12) + 1;
+            num2 = Math.floor(Math.random() * 12) + 1;
             result = num1 * num2;
 
             if (format === 'missing_result') {
-                questionText = `${num1} × ${num2} = `;
+                questionText = `${num1} × ${num2} = __BLANK__`;
                 correctAnswer = result;
             } else {
                 // Randomly choose which factor to hide
                 if (Math.random() < 0.5) {
-                    questionText = `${num1} × `;
+                    questionText = `${num1} × __BLANK__ = ${result}`;
                     correctAnswer = num2;
                 } else {
-                    questionText = ``;
+                    questionText = `__BLANK__ × ${num2} = ${result}`;
                     correctAnswer = num1;
-                }
-                questionText += ` = ${result}`;
-                if (questionText.startsWith(' ')) {
-                    questionText = questionText.substring(3);
-                    questionText = ` × ${num2} = ${result}`;
                 }
             }
         } else { // division
-            // Generate division by creating a multiplication first
-            num2 = Math.floor(Math.random() * 12) + 1; // divisor (1-12)
-            num1 = Math.floor(Math.random() * 12) + 1; // quotient (1-12)
-            result = num1 * num2; // dividend
+            num2 = Math.floor(Math.random() * 12) + 1;
+            num1 = Math.floor(Math.random() * 12) + 1;
+            result = num1 * num2;
 
             if (format === 'missing_result') {
-                questionText = `${result} ÷ ${num2} = `;
+                questionText = `${result} ÷ ${num2} = __BLANK__`;
                 correctAnswer = num1;
             } else {
                 // Randomly choose dividend or divisor to hide
                 if (Math.random() < 0.5) {
-                    questionText = `${result} ÷ `;
+                    questionText = `${result} ÷ __BLANK__ = ${num1}`;
                     correctAnswer = num2;
-                    questionText += ` = ${num1}`;
                 } else {
-                    questionText = ` ÷ ${num2} = ${num1}`;
+                    questionText = `__BLANK__ ÷ ${num2} = ${num1}`;
                     correctAnswer = result;
-                }
-                if (questionText.startsWith(' ')) {
-                    questionText = questionText.substring(3);
-                    questionText = ` ÷ ${num2} = ${num1}`;
                 }
             }
         }
@@ -97,29 +88,9 @@ class MathQuiz {
             const questionDiv = document.createElement('div');
             questionDiv.className = 'question';
 
-            // Insert a single answer box at the correct position in the question text
-            let html = '';
-            // Find where the blank is (" = ", " × ", " ÷ ")
-            // We'll use a special marker in the question text: '__BLANK__'
-            let qText = question.text;
+            // Always replace __BLANK__ with the input box
             let inputBox = `<input type="text" inputmode="numeric" pattern="[0-9]*" class="answer-input" data-index="${index}" placeholder="?">`;
-
-            // If the question text ends with = (missing result)
-            if (/=$/.test(qText.trim())) {
-                html = `${qText.trim()} ${inputBox}`;
-            } else if (/× $/.test(qText)) {
-                // e.g. "7 ×  = 21" (missing factor)
-                html = qText.replace(/×\s/, `× ${inputBox} `);
-            } else if (/÷ $/.test(qText)) {
-                // e.g. "56 ÷  = 7" (missing divisor)
-                html = qText.replace(/÷\s/, `÷ ${inputBox} `);
-            } else if (/^ ÷/.test(qText)) {
-                // e.g. " ÷ 8 = 6" (missing dividend)
-                html = qText.replace(/^ ÷/, `${inputBox} ÷`);
-            } else {
-                // fallback: put at end
-                html = `${qText} ${inputBox}`;
-            }
+            let html = question.text.replace('__BLANK__', inputBox);
 
             questionDiv.innerHTML = `
                 <div class="question-text">
@@ -203,7 +174,9 @@ class MathQuiz {
 
         // Update scores
         this.totalScore += this.currentScore;
+        this.totalQuestions += this.questions.length;
         sessionStorage.setItem('totalScore', this.totalScore.toString());
+        sessionStorage.setItem('totalQuestions', this.totalQuestions.toString());
         this.updateScoreDisplay();
 
         // Show results
@@ -236,9 +209,12 @@ class MathQuiz {
         } else if (this.currentScore >= 4) {
             message = 'Nice try! Practice makes perfect!';
             emoji = '💪📚';
-        } else {
+        } else if (this.currentScore > 0) {
             message = 'Keep practicing! You can do it!';
             emoji = '🌱💝';
+        } else {
+            message = 'Try again! Answer at least one question to get a score.';
+            emoji = '😅';
         }
 
         resultText.innerHTML = `${emoji}<br>You got ${this.currentScore} out of 10 questions correct!<br>${message}`;
@@ -250,11 +226,13 @@ class MathQuiz {
 
     updateScoreDisplay() {
         document.getElementById('currentScore').textContent = this.currentScore;
-        document.getElementById('totalScore').textContent = this.totalScore;
+        // Show total score as a percentage of all questions attempted
+        let percent = this.totalQuestions > 0 ? Math.round((this.totalScore / this.totalQuestions) * 100) : 0;
+        document.getElementById('totalScore').textContent = percent + '%';
     }
 
     updateTotalScoreDisplay() {
-        document.getElementById('totalScore').textContent = this.totalScore;
+        this.updateScoreDisplay();
     }
 
     nextRound() {
