@@ -35,26 +35,26 @@ class MathQuiz {
 
         // We'll use '__BLANK__' as a placeholder for the answer box
         if (operation === 'multiplication') {
-            num1 = Math.floor(Math.random() * 12) + 1;
-            num2 = Math.floor(Math.random() * 12) + 1;
+            num1 = Math.floor(Math.random() * 14) + 2; // 2-15
+            num2 = Math.floor(Math.random() * 14) + 2; // 2-15
             result = num1 * num2;
 
             if (format === 'missing_result') {
-                questionText = `${num1} × ${num2} = __BLANK__`;
+                questionText = `${num1} x ${num2} = __BLANK__`;
                 correctAnswer = result;
             } else {
                 // Randomly choose which factor to hide
                 if (Math.random() < 0.5) {
-                    questionText = `${num1} × __BLANK__ = ${result}`;
+                    questionText = `${num1} x __BLANK__ = ${result}`;
                     correctAnswer = num2;
                 } else {
-                    questionText = `__BLANK__ × ${num2} = ${result}`;
+                    questionText = `__BLANK__ x ${num2} = ${result}`;
                     correctAnswer = num1;
                 }
             }
         } else { // division
-            num2 = Math.floor(Math.random() * 12) + 1;
-            num1 = Math.floor(Math.random() * 12) + 1;
+            num2 = Math.floor(Math.random() * 14) + 2; // 2-15
+            num1 = Math.floor(Math.random() * 14) + 2; // 2-15
             result = num1 * num2;
 
             if (format === 'missing_result') {
@@ -262,7 +262,9 @@ class MathQuiz {
     }
 }
 
-// Initialize the quiz when the page loads
+// Reset total score and total questions on page load
 document.addEventListener('DOMContentLoaded', () => {
+    sessionStorage.setItem('totalScore', '0');
+    sessionStorage.setItem('totalQuestions', '0');
     new MathQuiz();
 });
