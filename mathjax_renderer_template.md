@@ -7,6 +7,9 @@
     },
     options: {
       skipHtmlTags: ['script','noscript','style','textarea','pre','code'] // don't render inside code blocks
+    },
+    chtml: {
+      scale: 1.3  // Increase this number to make fonts bigger
     }
   };
 </script>
@@ -58,3 +61,13 @@ f(x|\mu, \sigma^2) = \frac{1}{\sqrt{2\pi\sigma^2}}
 $$
 
 where $\mu$ is the mean and $\sigma^2$ is the variance.
+
+$4\frac{1}{3}$ = $\frac{}{3}$
+
+$3\frac{2}{7}$ =
+
+$5\frac{3}{5}$ =
+
+$2\frac{5}{8}$ =
+
+$6\frac{1}{4}$ =
