@@ -23,7 +23,6 @@ This file tests inline and block LaTeX equations.
 
 ## Inline Math
 
-<br><br><br><br><br>
 Here is an inline equation: $E = mc^2$.
 
 And another one with fractions: $\frac{1}{\sqrt{2\pi\sigma^2}} e^{-\frac{(x-\mu)^2}{2\sigma^2}}$.
@@ -38,7 +37,6 @@ $$
 a^2 + b^2 = c^2
 $$
 
-<div style="page-break-after: always;"></div>
 Another one with summation:
 
 $$
