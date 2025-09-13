@@ -48,6 +48,6 @@
 
 **Part B:** Word Problems
 
-1. Sarah bought items costing `$12.45`, `$8.75`, and `$15.30`. How much did she spend in total?
+1. Sarah bought items costing **$12.45**, **$8.75**, and **$15.30**. How much did she spend in total?
 
 2. A rope was 25.6 meters long. If 8.75 meters were cut off, how much rope remained?
