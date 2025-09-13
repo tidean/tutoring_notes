@@ -101,6 +101,6 @@ Convert the following fractions to decimals:
    <br><br>
 3. $\frac{7}{10}$ →
    <br><br>
-4. $\frac{2}{5}$ →
+4. $2\frac{2}{5}$ →
    <br><br>
-5. $\frac{3}{20}$ →
+5. $6\frac{3}{20}$ →
