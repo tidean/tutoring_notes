@@ -39,7 +39,7 @@
 - Step 1: $\frac{0.75}{1}$
 - Step 2: We have **2** decimal places, so we multiply by 100
 - Step 3: $\frac{0.75 \times 100}{1 \times 100} = \frac{75}{100}$
-- Step 4: Simplify by dividing by GCD(75,100) = 25
+- Step 4: Simplify by dividing by 25 (HCF/GCF of 75 and 100)
 - Answer: $\frac{3}{4}$
 
 **Example 2:** Convert $0.125$ to a fraction
@@ -72,8 +72,6 @@ Convert the following decimals to fractions in lowest terms:
 2. If yes, move the dot to the left the same number of times as you have zeroes in your denominator
 3. If not, convert the fraction such that the denominator is a multiple of 10, then move the dot
 
-**Examples:**
-
 **Example 1 - Denominator already a multiple of 10:** Convert $\frac{3}{100}$ to a decimal
 
 - Step 1: Denominator is already a multiple of 10
@@ -83,7 +81,7 @@ Convert the following decimals to fractions in lowest terms:
 **Example 2 - Denominator NOT a multiple of 10:** Convert $\frac{1}{4}$ to a decimal
 
 - Step 1: Denominator is not a multiple of 10
-- Step 2: $\frac{1}{4}$ can be rewritten as $\frac{25}{100}$ using equivalent fraction. $\frac{1}{4}$ = $\frac{25}{100}$
+- Step 2: $\frac{1}{4}$ can be rewritten as $\frac{25}{100}$ using equivalent fraction. $\frac{1}{4}$ = $\frac{25}{100}$.
 - Step 3: We have **2** zeroes, so we move the dot to the left 2 times
 - Answer: $0.25$
 
@@ -96,11 +94,6 @@ Convert the following decimals to fractions in lowest terms:
 Convert the following fractions to decimals:
 
 1. $\frac{1}{2}$ →
-   <br><br>
 2. $\frac{3}{4}$ →
-   <br><br>
 3. $\frac{7}{10}$ →
-   <br><br>
 4. $2\frac{2}{5}$ →
-   <br><br>
-5. $6\frac{3}{20}$ →
