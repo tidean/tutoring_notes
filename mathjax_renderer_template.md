@@ -73,3 +73,24 @@ $5\frac{3}{5}$ =
 $2\frac{5}{8}$ =
 
 $6\frac{1}{4}$ =
+
+## Addition and Subtraction in latex
+
+$$
+\begin{array}{r}
+   \phantom{+}25.470 \\
+   \phantom{+}8.900 \\
++  \phantom{ }0.635 \\ \hline
+   \phantom{+}35.005
+\end{array}
+$$
+
+$$
+\begin{array}{r}
+& 42.60 \\
+
+- & 18.73 \\
+  \hline
+  & 23.87
+  \end{array}
+$$
